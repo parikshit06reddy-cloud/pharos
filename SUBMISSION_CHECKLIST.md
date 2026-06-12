@@ -7,7 +7,7 @@ Entry window: May 19 – June 14, 2026 (11:59pm PT).
 
 | Requirement | Status | Where |
 |---|---|---|
-| Public GitHub repo | ✅ ready to push | this repository (MIT licensed, no secrets, synthetic data only; git initialized) |
+| Public GitHub repo | ✅ live | https://github.com/parikshit06reddy-cloud/pharos (MIT, no secrets, synthetic data only) |
 | Project description | ✅ | [README.md](README.md) — pitch, problem, persona, features |
 | Architecture diagram showing Foundry | ✅ | [README.md](README.md) + [ARCHITECTURE.md](ARCHITECTURE.md); live Foundry path in [FOUNDRY_SETUP.md](FOUNDRY_SETUP.md) |
 | Demo video ≤5 min (own work) | ⏳ record before submit | runbook in [DEMO_SCRIPT.md](DEMO_SCRIPT.md); placeholder link in README |
@@ -54,7 +54,7 @@ Entry window: May 19 – June 14, 2026 (11:59pm PT).
 ## Pre-submission punch list (human-only)
 
 - [ ] Record and link the demo video (≤5 min) — follow [DEMO_SCRIPT.md](DEMO_SCRIPT.md).
-- [ ] Push to a **public** GitHub repo (git is initialized locally; remote not yet configured).
+- [x] Push to a **public** GitHub repo — https://github.com/parikshit06reddy-cloud/pharos
 - [ ] Re-run `make verify` on a clean checkout (lint + types + tests + eval + frontend build).
 - [ ] (Optional) Provision Foundry IQ per [FOUNDRY_SETUP.md](FOUNDRY_SETUP.md), run `python -m scripts.foundry_ingest`, set `RETRIEVAL_PROVIDER=foundry_iq`, and re-run `make eval` for the live grounding path.
 - [ ] Confirm the architecture diagram renders in the README on GitHub.

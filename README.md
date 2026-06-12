@@ -1,7 +1,12 @@
 # Pharos
 
+[![CI](https://github.com/parikshit06reddy-cloud/pharos/actions/workflows/ci.yml/badge.svg)](https://github.com/parikshit06reddy-cloud/pharos/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 **Point-of-care medication decision support for prescribers — cited, triaged, and grounded.**
 Built for the **Microsoft Agents League @ AI Skills Fest 2026** (Reasoning Agents track), grounded by **Microsoft Foundry + Foundry IQ**.
+
+> **Repository:** https://github.com/parikshit06reddy-cloud/pharos · **Synthetic data only · Not medical advice · Informs, never prescribes**
 
 > A prescriber enters a **synthetic** patient context (age, conditions, current meds, allergies, labs such as eGFR) and a candidate drug with a free-text question. Pharos returns a structured **Decision Brief** in seconds: severity-triaged safety flags, a grounded answer, options to weigh, a confidence/gaps readout, and a citation for every clinical claim.
 >
