@@ -1,0 +1,50 @@
+{
+  "hart": {
+    "specialty": "Hematology",
+    "expertise_keywords": ["anticoagulation", "anticoagulant", "warfarin", "bleeding", "hemorrhage", "inr", "prothrombin", "clotting", "hematology", "thrombosis"],
+    "drug_classes": ["anticoagulant", "vitamin k antagonist"],
+    "capacity": 6
+  },
+  "cardoso": {
+    "specialty": "Cardiology",
+    "expertise_keywords": ["heart", "failure", "hypertension", "cardiac", "hyperkalemia", "potassium", "spironolactone", "lisinopril", "diuretic", "aldosterone", "cardiology"],
+    "drug_classes": ["ace inhibitor", "potassium-sparing diuretic", "aldosterone antagonist", "antihypertensive"],
+    "capacity": 6
+  },
+  "renner": {
+    "specialty": "Nephrology",
+    "expertise_keywords": ["renal", "kidney", "egfr", "glomerular", "ckd", "nephrology", "metformin", "lactic", "dialysis", "creatinine"],
+    "drug_classes": ["biguanide"],
+    "capacity": 5
+  },
+  "lin": {
+    "specialty": "Infectious Disease",
+    "expertise_keywords": ["infection", "antibiotic", "antimicrobial", "uti", "pneumonia", "sinusitis", "sulfa", "sulfonamide", "penicillin", "cephalosporin", "ceftriaxone", "amoxicillin", "sepsis"],
+    "drug_classes": ["sulfonamide antibiotic", "penicillin antibiotic", "beta-lactam", "folate antagonist"],
+    "capacity": 7
+  },
+  "mensah": {
+    "specialty": "Psychiatry",
+    "expertise_keywords": ["anxiety", "depression", "depressive", "panic", "insomnia", "psychiatry", "mental", "benzodiazepine", "sedative", "suicidal", "sertraline", "lorazepam", "alprazolam"],
+    "drug_classes": ["benzodiazepine", "ssri", "antidepressant", "cns depressant"],
+    "capacity": 6
+  },
+  "dahl": {
+    "specialty": "Dermatology",
+    "expertise_keywords": ["acne", "skin", "dermatology", "retinoid", "isotretinoin", "nodular", "rash", "dermatologic"],
+    "drug_classes": ["retinoid"],
+    "capacity": 4
+  },
+  "tan": {
+    "specialty": "Toxicology",
+    "expertise_keywords": ["overdose", "poisoning", "toxic", "toxicology", "ingestion", "antidote", "emergency", "overdosage", "sympathomimetic"],
+    "drug_classes": [],
+    "capacity": 8
+  },
+  "gold": {
+    "specialty": "General Medicine",
+    "expertise_keywords": ["general", "primary", "headache", "pain", "analgesic", "fever", "routine", "acetaminophen", "internal"],
+    "drug_classes": ["analgesic", "antipyretic"],
+    "capacity": 10
+  }
+}

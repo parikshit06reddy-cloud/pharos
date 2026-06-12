@@ -1,0 +1,15 @@
+{
+  "drug_name": "lorazepam",
+  "rxcui": "6470",
+  "classes": ["benzodiazepine", "cns depressant"],
+  "source_id": "openfda:lorazepam",
+  "source_version": "curated-excerpt-2026-06",
+  "url": "https://labels.fda.gov/",
+  "sections": {
+    "boxed_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS. Concomitant use of benzodiazepines such as lorazepam and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing for patients with inadequate alternatives.",
+    "geriatric_use": "In elderly and geriatric patients, lorazepam should be initiated at a low dose because older patients are more sensitive to the sedative effects of benzodiazepines. Elderly patients have an increased risk of falls, oversedation, confusion, and respiratory depression; reduce the dose and titrate carefully.",
+    "warnings": "Lorazepam is a benzodiazepine. Concomitant use with other benzodiazepines and CNS depressants increases the risk of profound sedation and respiratory depression.",
+    "drug_interactions": "Lorazepam combined with opioids, alcohol, or other CNS depressants increases the risk of additive sedation and respiratory depression."
+  },
+  "_note": "Curated, abbreviated representative excerpt of public FDA labeling. Not verbatim, not current. Not for clinical use."
+}

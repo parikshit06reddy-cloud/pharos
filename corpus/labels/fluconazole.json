@@ -1,0 +1,14 @@
+{
+  "drug_name": "fluconazole",
+  "rxcui": "4450",
+  "classes": ["azole antifungal", "cyp2c9 inhibitor"],
+  "source_id": "openfda:fluconazole",
+  "source_version": "curated-excerpt-2026-06",
+  "url": "https://labels.fda.gov/",
+  "sections": {
+    "drug_interactions": "Fluconazole is a potent inhibitor of CYP2C9 and may increase the anticoagulant effect of warfarin. Concomitant administration of fluconazole and warfarin has been associated with prolonged prothrombin time and elevated INR, increasing the risk of serious bleeding. Prothrombin time should be carefully monitored when fluconazole is co-administered with warfarin and the warfarin dose adjusted as needed.",
+    "warnings": "Rare cases of serious hepatic injury have been reported with fluconazole. Discontinue fluconazole if clinical signs of liver disease develop. Fluconazole may prolong the QT interval; use caution in patients with proarrhythmic conditions.",
+    "contraindications": "Fluconazole is contraindicated in patients with known hypersensitivity to fluconazole or other azole antifungal agents. Coadministration with drugs that prolong the QT interval and are metabolized by CYP3A4 is contraindicated."
+  },
+  "_note": "Curated, abbreviated representative excerpt of public FDA labeling. Not verbatim, not current. Not for clinical use."
+}

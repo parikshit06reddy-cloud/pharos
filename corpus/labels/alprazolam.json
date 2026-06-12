@@ -1,0 +1,14 @@
+{
+  "drug_name": "alprazolam",
+  "rxcui": "596",
+  "classes": ["benzodiazepine", "cns depressant"],
+  "source_id": "openfda:alprazolam",
+  "source_version": "curated-excerpt-2026-06",
+  "url": "https://labels.fda.gov/",
+  "sections": {
+    "boxed_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; AND DEPENDENCE AND WITHDRAWAL REACTIONS. Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death.",
+    "warnings": "Alprazolam is a benzodiazepine. Concomitant use with other benzodiazepines and central nervous system depressants increases the risk of profound sedation, respiratory depression, and complex sleep behaviors. Avoid concomitant use of multiple benzodiazepines.",
+    "drug_interactions": "Use of alprazolam with other CNS depressants, including other benzodiazepines, opioids, and alcohol, increases the risk of additive sedation and respiratory depression."
+  },
+  "_note": "Curated, abbreviated representative excerpt of public FDA labeling. Not verbatim, not current. Not for clinical use."
+}

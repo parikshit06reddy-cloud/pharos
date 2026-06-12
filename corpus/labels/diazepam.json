@@ -1,0 +1,14 @@
+{
+  "drug_name": "diazepam",
+  "rxcui": "3322",
+  "classes": ["benzodiazepine", "cns depressant"],
+  "source_id": "openfda:diazepam",
+  "source_version": "curated-excerpt-2026-06",
+  "url": "https://labels.fda.gov/",
+  "sections": {
+    "boxed_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS. Concomitant use of benzodiazepines such as diazepam and opioids may result in profound sedation, respiratory depression, coma, and death.",
+    "warnings": "Diazepam is a benzodiazepine. Concomitant use of multiple benzodiazepines and CNS depressants increases sedation and respiratory depression risk.",
+    "drug_interactions": "Diazepam combined with other CNS depressants, opioids, or benzodiazepines increases the risk of additive sedation and respiratory depression."
+  },
+  "_note": "Curated, abbreviated representative excerpt of public FDA labeling. Not verbatim, not current. Not for clinical use."
+}

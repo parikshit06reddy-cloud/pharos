@@ -1,0 +1,12 @@
+[
+  {"username": "frontdesk", "name": "Robin Vega (Front Desk)", "role": "front_desk", "password": "pharos123"},
+  {"username": "admin", "name": "Alex Okonkwo (Admin)", "role": "admin", "password": "pharos123"},
+  {"username": "hart", "name": "Dr. Hana Hart", "role": "doctor", "password": "pharos123", "specialty": "Hematology"},
+  {"username": "cardoso", "name": "Dr. Caleb Cardoso", "role": "doctor", "password": "pharos123", "specialty": "Cardiology"},
+  {"username": "renner", "name": "Dr. Rae Renner", "role": "doctor", "password": "pharos123", "specialty": "Nephrology"},
+  {"username": "lin", "name": "Dr. Mei Lin", "role": "doctor", "password": "pharos123", "specialty": "Infectious Disease"},
+  {"username": "mensah", "name": "Dr. Kofi Mensah", "role": "doctor", "password": "pharos123", "specialty": "Psychiatry"},
+  {"username": "dahl", "name": "Dr. Dana Dahl", "role": "doctor", "password": "pharos123", "specialty": "Dermatology"},
+  {"username": "tan", "name": "Dr. Tomas Tan", "role": "doctor", "password": "pharos123", "specialty": "Toxicology"},
+  {"username": "gold", "name": "Dr. Gabriel Gold", "role": "doctor", "password": "pharos123", "specialty": "General Medicine"}
+]

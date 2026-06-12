@@ -1,0 +1,13 @@
+{
+  "case_id": "case05_metformin_renal",
+  "session_id": "case05_metformin_renal",
+  "demographics": {"age_years": 61, "sex": "male", "pregnancy_status": "not_applicable"},
+  "conditions": [{"name": "type 2 diabetes"}, {"name": "chronic kidney disease"}],
+  "current_medications": [],
+  "allergies": [],
+  "labs": [{"name": "eGFR", "value": 24, "unit": "mL/min/1.73m2"}],
+  "candidate_drug": {"name": "metformin"},
+  "question": "Patient with CKD and an eGFR of 24. Can I start metformin for their type 2 diabetes?",
+  "consent": {"synthetic": true, "no_phi": true},
+  "_expected": {"abstain": false, "triage": "review_recommended", "flags": ["contraindication", "dose_special_population"], "injection": false, "route_specialty": "Nephrology"}
+}

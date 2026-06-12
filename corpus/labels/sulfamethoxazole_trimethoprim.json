@@ -1,0 +1,14 @@
+{
+  "drug_name": "sulfamethoxazole-trimethoprim",
+  "rxcui": "10180",
+  "classes": ["sulfonamide antibiotic", "folate antagonist"],
+  "source_id": "openfda:sulfamethoxazole_trimethoprim",
+  "source_version": "curated-excerpt-2026-06",
+  "url": "https://labels.fda.gov/",
+  "sections": {
+    "contraindications": "Sulfamethoxazole-trimethoprim is contraindicated in patients with a known hypersensitivity to sulfonamides or trimethoprim. A history of sulfonamide allergy may predispose patients to severe hypersensitivity reactions, including Stevens-Johnson syndrome.",
+    "warnings": "Fatal hypersensitivity reactions, including Stevens-Johnson syndrome and toxic epidermal necrolysis, have occurred with sulfonamides. Discontinue at the first appearance of skin rash. Patients with a sulfonamide allergy are at increased risk.",
+    "drug_interactions": "Sulfamethoxazole-trimethoprim may potentiate the effect of warfarin and oral hypoglycemic agents. Monitor accordingly."
+  },
+  "_note": "Curated, abbreviated representative excerpt of public FDA labeling. Not verbatim, not current. Not for clinical use."
+}

@@ -1,0 +1,14 @@
+{
+  "case_id": "hold04_polypharmacy_distractor",
+  "session_id": "hold04",
+  "_note": "Held-out precision-under-noise: three current meds, only one truly interacts. The system must flag the warfarin interaction and NOT invent flags for the non-interacting meds.",
+  "demographics": {"age_years": 70, "sex": "male", "pregnancy_status": "not_applicable"},
+  "conditions": [{"name": "atrial fibrillation"}, {"name": "osteoarthritis"}, {"name": "sinusitis"}],
+  "current_medications": [{"name": "warfarin"}, {"name": "acetaminophen"}, {"name": "amoxicillin"}],
+  "allergies": [],
+  "labs": [],
+  "candidate_drug": {"name": "fluconazole"},
+  "question": "Patient on warfarin, acetaminophen, and amoxicillin needs fluconazole for thrush. Concerns?",
+  "consent": {"synthetic": true, "no_phi": true},
+  "_expected": {"abstain": false, "triage": "review_recommended", "flags": ["interaction"], "injection": false, "route_specialty": "Hematology", "max_findings": 1}
+}

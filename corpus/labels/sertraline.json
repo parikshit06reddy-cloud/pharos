@@ -1,0 +1,14 @@
+{
+  "drug_name": "sertraline",
+  "rxcui": "36437",
+  "classes": ["ssri", "antidepressant"],
+  "source_id": "openfda:sertraline",
+  "source_version": "curated-excerpt-2026-06",
+  "url": "https://labels.fda.gov/",
+  "sections": {
+    "boxed_warning": "WARNING: SUICIDAL THOUGHTS AND BEHAVIORS. Antidepressants increased the risk of suicidal thoughts and behavior in pediatric and young adult patients. Closely monitor all antidepressant-treated patients for clinical worsening and emergence of suicidal thoughts and behaviors, particularly in children, adolescents, and young adults.",
+    "pediatric_use": "Safety and effectiveness of sertraline in pediatric patients have been established only for obsessive-compulsive disorder. The risk of suicidal thoughts and behaviors is increased in pediatric patients; close monitoring is required when initiating sertraline in children and adolescents.",
+    "warnings": "Sertraline may increase the risk of suicidal thoughts and behaviors, serotonin syndrome, and abnormal bleeding. Monitor for clinical worsening, especially early in treatment."
+  },
+  "_note": "Curated, abbreviated representative excerpt of public FDA labeling. Not verbatim, not current. Not for clinical use."
+}

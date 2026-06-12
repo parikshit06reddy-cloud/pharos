@@ -1,0 +1,14 @@
+{
+  "drug_name": "lisinopril",
+  "rxcui": "29046",
+  "classes": ["ace inhibitor", "antihypertensive"],
+  "source_id": "openfda:lisinopril",
+  "source_version": "curated-excerpt-2026-06",
+  "url": "https://labels.fda.gov/",
+  "sections": {
+    "boxed_warning": "WARNING: FETAL TOXICITY. When pregnancy is detected, discontinue lisinopril as soon as possible. Drugs that act on the renin-angiotensin system can cause injury and death to the developing fetus.",
+    "drug_interactions": "Concomitant use of lisinopril with potassium-sparing diuretics such as spironolactone, potassium supplements, or aldosterone antagonists may lead to significant increases in serum potassium and hyperkalemia. Monitor serum potassium in such patients.",
+    "warnings": "Hyperkalemia may occur with lisinopril, especially in patients with renal impairment or those taking potassium-sparing diuretics. Angioedema has been reported."
+  },
+  "_note": "Curated, abbreviated representative excerpt of public FDA labeling. Not verbatim, not current. Not for clinical use."
+}

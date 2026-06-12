@@ -1,0 +1,14 @@
+{
+  "drug_name": "acetaminophen",
+  "rxcui": "161",
+  "classes": ["analgesic", "antipyretic"],
+  "source_id": "openfda:acetaminophen",
+  "source_version": "curated-excerpt-2026-06",
+  "url": "https://labels.fda.gov/",
+  "sections": {
+    "warnings": "Acetaminophen has been associated with acute liver failure, at times resulting in liver transplant and death. Most cases of liver injury are associated with the use of acetaminophen at doses that exceed 4000 milligrams per day. Do not exceed the recommended dose.",
+    "dosage_and_administration": "The maximum recommended daily dose of acetaminophen in adults is 4000 milligrams per day. Use the lowest effective dose for the shortest duration.",
+    "overdosage": "Acetaminophen overdose can cause hepatic necrosis. Acetylcysteine is the antidote and is most effective when given within 8 to 10 hours of ingestion."
+  },
+  "_note": "Curated, abbreviated representative excerpt of public FDA labeling. Not verbatim, not current. Not for clinical use."
+}

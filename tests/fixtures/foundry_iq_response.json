@@ -1,0 +1,60 @@
+{
+  "_note": "Representative Foundry IQ / Azure AI Search Knowledge Retrieval response, shaped per the verified GA REST 2026-04-01 schema (response / activity / references; each reference carries source_data + docKey + rerankerScore). Used to prove the FoundryIQProvider adapter mapping and the full safety pipeline run end-to-end on Foundry-shaped data WITHOUT a live tenant. Content is the same curated, synthetic, public-label-derived text used offline. Not for clinical use.",
+  "response": [
+    {"content": [{"type": "text", "text": "[grounding references returned below]"}]}
+  ],
+  "activity": [
+    {"type": "modelQueryPlanning", "id": 0, "inputTokens": 12, "outputTokens": 24},
+    {"type": "searchIndex", "id": 1, "knowledgeSourceName": "pharos-drug-labels-source", "queryTime": "2026-06-12T00:00:00Z"}
+  ],
+  "references": [
+    {
+      "type": "searchIndex", "id": "r0", "activitySource": 1, "rerankerScore": 3.6, "docKey": "fluconazole:drug_interactions",
+      "source_data": {
+        "id": "fluconazole:drug_interactions",
+        "title": "fluconazole \u2014 drug interactions",
+        "section": "drug_interactions",
+        "drug_name": "fluconazole",
+        "source_version": "curated-excerpt-2026-06",
+        "url": "https://labels.fda.gov/",
+        "content": "Fluconazole is a potent inhibitor of CYP2C9 and may increase the anticoagulant effect of warfarin. Concomitant administration of fluconazole and warfarin has been associated with prolonged prothrombin time and elevated INR, increasing the risk of serious bleeding. Prothrombin time should be carefully monitored when fluconazole is co-administered with warfarin and the warfarin dose adjusted as needed."
+      }
+    },
+    {
+      "type": "searchIndex", "id": "r1", "activitySource": 1, "rerankerScore": 2.9, "docKey": "fluconazole:warnings",
+      "source_data": {
+        "id": "fluconazole:warnings",
+        "title": "fluconazole \u2014 warnings",
+        "section": "warnings",
+        "drug_name": "fluconazole",
+        "source_version": "curated-excerpt-2026-06",
+        "url": "https://labels.fda.gov/",
+        "content": "Rare cases of serious hepatic injury have been reported with fluconazole. Discontinue fluconazole if clinical signs of liver disease develop. Fluconazole may prolong the QT interval; use caution in patients with proarrhythmic conditions."
+      }
+    },
+    {
+      "type": "searchIndex", "id": "r2", "activitySource": 1, "rerankerScore": 2.1, "docKey": "warfarin:drug_interactions",
+      "source_data": {
+        "id": "warfarin:drug_interactions",
+        "title": "warfarin \u2014 drug interactions",
+        "section": "drug_interactions",
+        "drug_name": "warfarin",
+        "source_version": "curated-excerpt-2026-06",
+        "url": "https://labels.fda.gov/",
+        "content": "Many drugs interact with warfarin and may increase the risk of bleeding. Inhibitors of CYP2C9 such as fluconazole can increase warfarin exposure, prolong prothrombin time, and elevate INR. Concomitant use with antifungal agents requires close monitoring of INR."
+      }
+    },
+    {
+      "type": "searchIndex", "id": "r3", "activitySource": 1, "rerankerScore": 1.8, "docKey": "warfarin:boxed_warning",
+      "source_data": {
+        "id": "warfarin:boxed_warning",
+        "title": "warfarin \u2014 boxed warning",
+        "section": "boxed_warning",
+        "drug_name": "warfarin",
+        "source_version": "curated-excerpt-2026-06",
+        "url": "https://labels.fda.gov/",
+        "content": "WARNING: BLEEDING RISK. Warfarin can cause major or fatal bleeding. Regular monitoring of INR should be performed on all treated patients."
+      }
+    }
+  ]
+}

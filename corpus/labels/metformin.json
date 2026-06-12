@@ -1,0 +1,15 @@
+{
+  "drug_name": "metformin",
+  "rxcui": "6809",
+  "classes": ["biguanide", "antidiabetic"],
+  "source_id": "openfda:metformin",
+  "source_version": "curated-excerpt-2026-06",
+  "url": "https://labels.fda.gov/",
+  "sections": {
+    "boxed_warning": "WARNING: LACTIC ACIDOSIS. Metformin-associated lactic acidosis is a rare but serious complication. The risk increases with renal impairment, and metformin accumulation increases the risk of lactic acidosis.",
+    "contraindications": "Metformin is contraindicated in patients with severe renal impairment, defined as an estimated glomerular filtration rate (eGFR) below 30 mL/min/1.73 m2, because of the increased risk of lactic acidosis.",
+    "use_in_specific_populations": "Assessment of renal function is recommended before initiating metformin. In patients with an eGFR between 30 and 45 mL/min/1.73 m2, the benefits and risks of continuing therapy should be reassessed and the dose reduced. Metformin is contraindicated below an eGFR of 30.",
+    "dosage_and_administration": "Obtain an eGFR before starting metformin and at least annually. Reduce the metformin dose in patients with declining renal function and discontinue if eGFR falls below 30 mL/min/1.73 m2."
+  },
+  "_note": "Curated, abbreviated representative excerpt of public FDA labeling. Not verbatim, not current. Not for clinical use."
+}

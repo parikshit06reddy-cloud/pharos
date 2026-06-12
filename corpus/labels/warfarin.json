@@ -1,0 +1,14 @@
+{
+  "drug_name": "warfarin",
+  "rxcui": "11289",
+  "classes": ["anticoagulant", "vitamin k antagonist"],
+  "source_id": "openfda:warfarin",
+  "source_version": "curated-excerpt-2026-06",
+  "url": "https://labels.fda.gov/",
+  "sections": {
+    "boxed_warning": "WARNING: BLEEDING RISK. Warfarin can cause major or fatal bleeding. Regular monitoring of INR should be performed on all treated patients. Drugs, dietary changes, and other factors affect INR levels achieved with warfarin therapy.",
+    "drug_interactions": "Many drugs interact with warfarin and may increase the risk of bleeding. Inhibitors of CYP2C9 such as fluconazole can increase warfarin exposure, prolong prothrombin time, and elevate INR. Concomitant use with antifungal agents requires close monitoring of INR.",
+    "warnings": "The most serious risk associated with warfarin is hemorrhage in any tissue or organ. Monitor INR regularly."
+  },
+  "_note": "Curated, abbreviated representative excerpt of public FDA labeling. Not verbatim, not current. Not for clinical use."
+}

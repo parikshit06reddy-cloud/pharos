@@ -1,0 +1,13 @@
+{
+  "case_id": "case08_lorazepam_geriatric",
+  "session_id": "case08_lorazepam_geriatric",
+  "demographics": {"age_years": 78, "sex": "female", "pregnancy_status": "not_applicable"},
+  "conditions": [{"name": "insomnia"}],
+  "current_medications": [],
+  "allergies": [],
+  "labs": [],
+  "candidate_drug": {"name": "lorazepam"},
+  "question": "78-year-old with insomnia. Any special considerations before starting lorazepam?",
+  "consent": {"synthetic": true, "no_phi": true},
+  "_expected": {"abstain": false, "triage": "review_recommended", "flags": ["dose_special_population"], "injection": false, "route_specialty": "Psychiatry"}
+}

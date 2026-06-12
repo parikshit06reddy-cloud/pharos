@@ -1,0 +1,14 @@
+{
+  "drug_name": "amoxicillin",
+  "rxcui": "723",
+  "classes": ["penicillin antibiotic", "beta-lactam"],
+  "source_id": "openfda:amoxicillin",
+  "source_version": "curated-excerpt-2026-06",
+  "url": "https://labels.fda.gov/",
+  "sections": {
+    "contraindications": "Amoxicillin is contraindicated in patients with a known hypersensitivity to penicillins or beta-lactam antibiotics.",
+    "drug_interactions": "Probenecid decreases the renal tubular secretion of amoxicillin and may increase amoxicillin blood levels. Amoxicillin may reduce the efficacy of oral contraceptives.",
+    "warnings": "Serious and occasionally fatal hypersensitivity reactions have been reported with penicillins. Discontinue amoxicillin if an allergic reaction occurs."
+  },
+  "_note": "Curated, abbreviated representative excerpt of public FDA labeling. Not verbatim, not current. Not for clinical use."
+}

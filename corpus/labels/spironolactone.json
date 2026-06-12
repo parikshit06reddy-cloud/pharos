@@ -1,0 +1,14 @@
+{
+  "drug_name": "spironolactone",
+  "rxcui": "9997",
+  "classes": ["potassium-sparing diuretic", "aldosterone antagonist"],
+  "source_id": "openfda:spironolactone",
+  "source_version": "curated-excerpt-2026-06",
+  "url": "https://labels.fda.gov/",
+  "sections": {
+    "drug_interactions": "Concomitant use of spironolactone with ACE inhibitors such as lisinopril increases the risk of severe hyperkalemia. Potassium-sparing diuretics combined with ACE inhibitors can cause clinically significant elevations in serum potassium, particularly in patients with renal impairment. Serum potassium should be monitored closely when spironolactone is given with lisinopril.",
+    "warnings": "Spironolactone can cause hyperkalemia, which may be fatal. The risk of hyperkalemia is increased by concomitant use of ACE inhibitors, angiotensin receptor blockers, or potassium supplements. Monitor serum potassium and renal function.",
+    "contraindications": "Spironolactone is contraindicated in patients with hyperkalemia, Addison disease, or concomitant use of eplerenone."
+  },
+  "_note": "Curated, abbreviated representative excerpt of public FDA labeling. Not verbatim, not current. Not for clinical use."
+}

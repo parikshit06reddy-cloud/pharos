@@ -1,0 +1,14 @@
+{
+  "drug_name": "isotretinoin",
+  "rxcui": "40575",
+  "classes": ["retinoid"],
+  "source_id": "openfda:isotretinoin",
+  "source_version": "curated-excerpt-2026-06",
+  "url": "https://labels.fda.gov/",
+  "sections": {
+    "boxed_warning": "WARNING: PREGNANCY AND BIRTH DEFECTS. Isotretinoin is a potent teratogen and must not be used by patients who are pregnant or who may become pregnant. There is an extremely high risk of severe birth defects and fetal death if pregnancy occurs while taking isotretinoin in any amount, even for short periods.",
+    "contraindications": "Isotretinoin is contraindicated in pregnancy because it is a known human teratogen that causes severe birth defects. Isotretinoin is contraindicated in patients who are pregnant or may become pregnant during treatment.",
+    "use_in_specific_populations": "Isotretinoin causes fetal harm. Patients who can become pregnant must use two forms of effective contraception and comply with the iPLEDGE program."
+  },
+  "_note": "Curated, abbreviated representative excerpt of public FDA labeling. Not verbatim, not current. Not for clinical use."
+}
