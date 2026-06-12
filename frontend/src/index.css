@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 620px at 78% -12%, rgba(13, 148, 136, 0.10), transparent 60%),
+    radial-gradient(900px 520px at 0% 0%, rgba(37, 99, 235, 0.06), transparent 55%),
+    #eef2f8;
+  color: #0f1b2e;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* The "lighthouse beam" sweeping across the live-reasoning panel while it streams. */
+.beam-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0d9488, transparent);
+  animation: beam-sweep 1.8s linear infinite;
+}
+
+@keyframes beam-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Accessibility: honor reduced-motion. */
+@media (prefers-reduced-motion: reduce) {
+  .beam-line { animation: none; opacity: 0.5; }
+  * { scroll-behavior: auto !important; }
+}
+
+/* Visible keyboard focus. */
+:focus-visible {
+  outline: 2px solid #0d9488;
+  outline-offset: 2px;
+}
