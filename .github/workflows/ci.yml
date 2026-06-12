@@ -21,11 +21,11 @@ jobs:
           pip install -r requirements.txt
           pip install ruff mypy
       - name: Lint (ruff)
-        run: ruff check backend scripts tests
+        run: python -m ruff check backend scripts tests
       - name: Type-check (mypy)
-        run: mypy backend
+        run: python -m mypy backend
       - name: Unit + e2e tests
-        run: pytest
+        run: python -m pytest
       - name: Evaluation scorecard (curated + held-out + grounding-gate benchmark; hard-gated)
         run: python -m scripts.score
 
