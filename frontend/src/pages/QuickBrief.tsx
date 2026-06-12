@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { deleteSession, streamBrief } from "../api";
 import { CaseForm } from "../components/CaseForm";
 import { DecisionBrief, ReasoningStream } from "../components/DecisionBrief";
+import { ReasoningRoster } from "../components/ReasoningRoster";
 import type { Brief, CaseInput, StreamEvent } from "../types";
 
 export function QuickBrief() {
@@ -45,6 +46,7 @@ export function QuickBrief() {
             <CaseForm onRun={run} busy={busy} />
           </section>
           <ReasoningStream events={events} busy={busy} latency={latency} />
+          <ReasoningRoster />
         </div>
         <div>
           {error && <div className="bg-sev-serious/10 border border-sev-serious/40 rounded-xl p-4 text-sm text-sev-serious">{error}</div>}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth";
 import { AgentChat } from "./AgentChat";
+import { ProviderBanner } from "./ProviderBanner";
 
 interface NavItem { to: string; label: string; roles: string[] }
 
@@ -51,8 +52,11 @@ export function AppShell() {
 
       {/* Main */}
       <div className="flex-1 min-w-0 flex flex-col">
-        <header className="h-16 border-b border-line flex items-center justify-between px-6">
-          <div className="text-[12px] text-muted">Synthetic data only · Pharos informs; the clinician decides · Not for clinical use</div>
+        <header className="min-h-16 py-2 border-b border-line flex items-center justify-between px-6 gap-4">
+          <div className="min-w-0 space-y-1">
+            <div className="text-[12px] text-muted truncate">Synthetic data only · Pharos informs; the clinician decides · Not for clinical use</div>
+            <ProviderBanner />
+          </div>
           <button onClick={() => setAgentOpen((v) => !v)}
             className="text-xs px-3 py-1.5 rounded-lg border border-beam/40 text-beam hover:bg-beam/10 transition">
             {agentOpen ? "Close assistant" : "Ask assistant"}

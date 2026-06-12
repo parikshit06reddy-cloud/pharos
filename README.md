@@ -66,7 +66,7 @@ Pharos is built around a single conviction: **an agent that can say "I don't kno
 | Live adapters (optional) | Foundry LLM router + tool-calling agent (`ROUTER_PROVIDER` / `AGENT_PROVIDER=foundry`) |
 | Frontend | React 18, TypeScript, Vite, Tailwind CSS |
 | Data | openFDA labels, RxNorm RxCUIs, synthetic patient cases only |
-| CI / quality | GitHub Actions, pytest (94 tests), ruff, mypy, `make eval` scorecard |
+| CI / quality | GitHub Actions, pytest (99 tests), ruff, mypy, `make eval` scorecard |
 
 ## The five non-negotiable principles
 
@@ -155,9 +155,36 @@ doctor worklist) with a tool-calling assistant. Detailed offline view:
                              injection guard · one-tap session delete
 ```
 
-The **RetrievalProvider adapter** is the *only* seam that touches Foundry IQ. By default Pharos uses `LocalCorpusProvider` (offline BM25 over a curated public-label corpus) so the demo and the full evaluation run **with zero cloud credentials**. Setting `RETRIEVAL_PROVIDER=foundry_iq` swaps in `FoundryIQProvider` — Foundry IQ agentic retrieval over an Azure AI Search knowledge base — with no change to the safety pipeline. Pharos deliberately uses the **direct retrieve** path so its own grounding gate stays in control of what reaches the clinician. See [ARCHITECTURE.md](ARCHITECTURE.md) and [FOUNDRY_SETUP.md](FOUNDRY_SETUP.md).
+The **RetrievalProvider adapter** is the *only* seam that touches Foundry IQ. By default Pharos uses `LocalCorpusProvider` (offline BM25 over a curated public-label corpus) so judges can run **`make setup && make test && make eval && make run` with zero Azure credentials**. Setting `RETRIEVAL_PROVIDER=foundry_iq` swaps in `FoundryIQProvider` — Foundry IQ agentic retrieval over an Azure AI Search knowledge base — with **no change to the safety pipeline**. For judges without a tenant, `RETRIEVAL_PROVIDER=foundry_replay` runs the same adapter against a captured GA-shaped Foundry IQ response (`tests/test_foundry_adapter.py`). Pharos deliberately uses the **direct retrieve** path so its own grounding gate stays in control of what reaches the clinician. See [ARCHITECTURE.md](ARCHITECTURE.md) and [FOUNDRY_SETUP.md](FOUNDRY_SETUP.md).
+
+### Reasoning agent roster (named roles, streamed to the UI)
+
+| Agent | Pattern | Stage | What it does |
+| --- | --- | --- | --- |
+| **Gatekeeper** | guardrail | intake | Consent gate + PII scrub |
+| **Researcher** | tool-use | retrieval | Foundry IQ agentic retrieval (or offline BM25) |
+| **Prompt Shield** | guardrail | injection_scan | Strip instruction-like text from retrieved content |
+| **Safety Analyst ×6** | parallel-executor | specialist | Interactions, contraindications, allergies, duplication, dose/special-pop, boxed warning |
+| **Draft Assembler** | executor | synthesis | Assemble answer + options from findings |
+| **Critic / Grounding Gate** | critic-verifier | verifier | Grade each claim vs cited passage; drop UNSUPPORTED; abstain |
+| **Escalation Officer** | executor | triage | Severity tier + emergency resources |
+
+Each stage streams over SSE with its **role label**; the UI reasoning trace is expandable so judges can inspect specialist findings, retrieved sources, and verifier grades. `GET /health` exposes the same roster and active provider (`local` | `foundry_iq` | `foundry_replay`).
 
 > **Verified live (2026-06-12):** the Foundry IQ path was run end-to-end against a real Azure tenant (azure-search-documents 12.0.0, REST 2026-04-01). The full suite scored **100%** on `foundry_iq` with the safety pipeline unchanged — evidence in [eval/scorecard_foundry_iq.md](eval/scorecard_foundry_iq.md). Stand it up with `python -m scripts.foundry_ingest` ([FOUNDRY_SETUP.md](FOUNDRY_SETUP.md)).
+
+---
+
+## Microsoft Foundry integration (honest status)
+
+| Component | Default (judge-friendly) | Live Foundry path | Verified |
+| --- | --- | --- | --- |
+| **Foundry IQ retrieval** | `LocalCorpusProvider` (offline BM25) | `FoundryIQProvider` — agentic retrieval + citations over Azure AI Search KB | ✅ Live tenant run 2026-06-12; offline replay via `foundry_replay` |
+| **Grounding gate / critic** | Always in-pipeline (`verifier.py`) | Unchanged — Pharos keeps control of what reaches the clinician | ✅ 100% fabrication drop-recall on benchmark |
+| **Expert router** | `LocalRouter` (deterministic) | `FoundryRouter` (Foundry-hosted chat model) | Adapter wired; requires `ROUTER_PROVIDER=foundry` + Azure |
+| **Navigation agent** | `LocalAgent` (deterministic tools) | `FoundryAgent` (tool-calling ReAct) | Adapter stub delegates offline until Azure credentials configured |
+
+Pharos is **architected for Foundry IQ** as the retrieval seam; the offline path exists so every judge can reproduce `make test && make eval` without Azure. For submission, provision Foundry IQ per [FOUNDRY_SETUP.md](FOUNDRY_SETUP.md) and demo the live path in your video.
 
 ---
 
@@ -167,7 +194,7 @@ The **RetrievalProvider adapter** is the *only* seam that touches Foundry IQ. By
 # 1) Backend
 make setup            # pip install -r requirements.txt
 make eval             # run the evaluation scorecard over the synthetic suite
-make test             # 94 unit + end-to-end tests
+make test             # 99 unit + end-to-end tests
 make eval-live        # robustness probe over real openFDA labels (needs network)
 make run              # API on http://localhost:8000  (docs at /docs)
 
@@ -249,7 +276,7 @@ data/synthetic_cases/  12 synthetic evaluation cases (expected behavior + expect
 data/seed/          synthetic staff roster (users + specialist expertise profiles)
 scripts/            score.py (scorecard incl. routing accuracy) · fetch_corpus.py (live ingestion)
 eval/               scorecard.json / scorecard.md
-tests/              94 unit + end-to-end tests (incl. Foundry adapter replay + e2e safety)
+tests/              99 unit + end-to-end tests (incl. Foundry adapter replay + e2e safety)
 eval/gate_benchmark.json  labeled grounding-gate benchmark (incl. false-reassurance attacks)
 data/holdout_cases/  adversarial cases kept out of the corpus-design loop
 frontend/           Vite + React + TypeScript + Tailwind — role-based app shell, worklists, agent panel

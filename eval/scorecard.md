@@ -6,7 +6,7 @@ Three independent views are reported so the evaluation is not circular: the cura
 
 ## Curated suite
 
-Cases: **12** · case accuracy **100.0%** · median latency **0.8 ms**
+Cases: **12** · case accuracy **100.0%** · median latency **0.9 ms**
 
 | Metric | Result |
 | --- | --- |

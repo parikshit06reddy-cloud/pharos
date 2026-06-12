@@ -15,6 +15,7 @@ from . import injection_guard, synthesizer, verifier
 from . import triage as triage_mod
 from .governance import audit_log
 from .intake import run_intake
+from .reasoning_roles import role_for_event
 from .retrieval import get_provider
 from .retrieval.base import tokenize
 from .schemas import DecisionBrief, EvidencePassage, SafetyFinding
@@ -36,6 +37,7 @@ _MED_SECTIONS = ("drug_interactions", "contraindications", "warnings")
 
 
 def _event(name: str, data: dict) -> dict:
+    data = {**data, "role": role_for_event(name, data)}
     return {"event": name, "data": data}
 
 
@@ -88,10 +90,12 @@ def run_pipeline(raw_case: dict, session_id: str | None = None) -> Iterator[dict
 
     # 2) Retrieval (Foundry IQ adapter)
     pool = _retrieve_pool(provider, case)
+    provider_name = type(provider).__name__
     yield _event(
         "retrieval",
         {
-            "provider": pool[0].provider if pool else "local_corpus",
+            "provider": pool[0].provider if pool else provider_name.replace("Provider", "").lower(),
+            "provider_class": provider_name,
             "count": len(pool),
             "sources": [{"citation_key": p.citation_key, "title": p.title, "section": p.section} for p in pool],
         },

@@ -29,6 +29,7 @@ from .envload import load_env
 from .governance import audit_log, data_passport, model_card
 from .intake import ConsentError
 from .pipeline import run_pipeline
+from .reasoning_roles import REASONING_AGENTS, active_providers
 from .seed import seed_users
 
 load_env()  # load .env (real env vars win; no-op if absent)
@@ -78,7 +79,17 @@ def _sse(payload: dict) -> str:
 
 @app.get("/health")
 def health() -> dict:
-    return {"status": "ok", "service": "pharos", "version": app.version, "audit_chain_valid": audit_log.verify_chain()}
+    providers = active_providers()
+    return {
+        "status": "ok",
+        "service": "pharos",
+        "version": app.version,
+        "audit_chain_valid": audit_log.verify_chain(),
+        "providers": providers,
+        "foundry_iq_ready": providers["retrieval"] in ("foundry_iq", "foundry", "foundry_replay", "replay"),
+        "reasoning_agents": REASONING_AGENTS,
+        "offline_capable": True,
+    }
 
 
 @app.get("/model-card")

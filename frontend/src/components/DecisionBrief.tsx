@@ -1,37 +1,84 @@
 import { useMemo, useState } from "react";
 import { getJSON } from "../api";
 import type { Brief, Finding, Passage, StreamEvent } from "../types";
-import { Pill, SEV, STAGES, TIER } from "../lib/ui";
+import { Pill, ROLE_LABEL, SEV, STAGES, TIER } from "../lib/ui";
+
+function stageDetail(e: StreamEvent): string {
+  if (e.event === "retrieval") {
+    const prov = e.data.provider_class ?? e.data.provider;
+    return `${e.data.count} passages · ${prov}`;
+  }
+  if (e.event === "injection_scan") return e.data.injection_detected ? "injection attempt found & ignored" : "clean";
+  if (e.event === "specialist") return `${e.data.findings.length} finding(s)`;
+  if (e.event === "verifier") {
+    const dropped = e.data.dropped_unsupported ?? 0;
+    return (
+      `grounded ${Math.round((e.data.grounded_share ?? 0) * 100)}%`
+      + (dropped > 0 ? ` · dropped ${dropped} unsupported` : "")
+      + (e.data.conflict ? " · sources conflict" : "")
+      + (e.data.abstained ? " · abstain" : "")
+    );
+  }
+  if (e.event === "triage") return e.data.tier;
+  if (e.event === "intake") return `${e.data.redactions?.length ?? 0} redaction(s)`;
+  if (e.event === "synthesis") return e.data.answerable ? "answerable" : `withheld: ${e.data.reason ?? "—"}`;
+  return "";
+}
+
+function expandableBody(e: StreamEvent): string | null {
+  if (e.event === "specialist" && e.data.findings?.length) {
+    return e.data.findings.map((f: Finding) => `• [${f.severity}] ${f.statement}`).join("\n");
+  }
+  if (e.event === "retrieval" && e.data.sources?.length) {
+    return e.data.sources.slice(0, 6).map((s: { citation_key: string; section: string }) => `• ${s.citation_key} (${s.section})`).join("\n");
+  }
+  if (e.event === "verifier" && e.data.grounding?.length) {
+    return e.data.grounding.map((g: { finding_id: string; grounding: string }) => `• ${g.finding_id}: ${g.grounding}`).join("\n");
+  }
+  return null;
+}
 
 export function ReasoningStream({ events, busy, latency }: { events: StreamEvent[]; busy: boolean; latency: number | null }) {
+  const [open, setOpen] = useState<number | null>(null);
+  const stages = useMemo(() => events.filter((e) => e.event !== "brief"), [events]);
+
   return (
     <div className="relative bg-surface/60 border border-line rounded-xl p-4 overflow-hidden">
       {busy && <div className="beam-line" />}
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-display text-sm tracking-wide text-mist">Live reasoning</h3>
+        <div>
+          <h3 className="font-display text-sm tracking-wide text-mist">Live reasoning trace</h3>
+          <p className="text-[10px] text-muted mt-0.5">Named agents · critic/verifier gate · streamed stage-by-stage</p>
+        </div>
         {latency != null && <span className="font-mono text-[11px] text-beam tabular">{latency} ms end-to-end</span>}
       </div>
       <ol className="space-y-1.5">
-        {events.length === 0 && <li className="text-sm text-muted">Awaiting a case…</li>}
-        {events.map((e, i) => {
-          const name = e.event === "specialist" ? `${STAGES.specialist}: ${e.data.specialist}` : STAGES[e.event] ?? e.event;
-          let detail = "";
-          if (e.event === "retrieval") detail = `${e.data.count} passages · ${e.data.provider}`;
-          else if (e.event === "injection_scan") detail = e.data.injection_detected ? "injection attempt found & ignored" : "clean";
-          else if (e.event === "specialist") detail = `${e.data.findings.length} finding(s)`;
-          else if (e.event === "verifier") {
-            const dropped = e.data.dropped_unsupported ?? 0;
-            detail = `grounded ${Math.round((e.data.grounded_share ?? 0) * 100)}%`
-              + (dropped > 0 ? ` · dropped ${dropped} unsupported` : "")
-              + (e.data.conflict ? " · sources conflict" : "")
-              + (e.data.abstained ? " · abstain" : "");
-          }
-          else if (e.event === "triage") detail = e.data.tier;
+        {stages.length === 0 && <li className="text-sm text-muted">Awaiting a case…</li>}
+        {stages.map((e, i) => {
+          const role = (e.data.role as string) || ROLE_LABEL[e.event] || e.event;
+          const stage = e.event === "specialist" ? STAGES.specialist : STAGES[e.event] ?? e.event;
+          const detail = stageDetail(e);
+          const body = expandableBody(e);
+          const isOpen = open === i;
           return (
-            <li key={i} className="flex items-center gap-2 text-sm">
-              <span className={`w-1.5 h-1.5 rounded-full ${e.event === "injection_scan" && e.data.injection_detected ? "bg-sev-serious" : "bg-beam"}`} />
-              <span className="text-mist">{name}</span>
-              {detail && <span className="font-mono text-[11px] text-muted">— {detail}</span>}
+            <li key={i} className="text-sm">
+              <button
+                type="button"
+                disabled={!body}
+                onClick={() => setOpen(isOpen ? null : i)}
+                className={`w-full text-left flex items-start gap-2 ${body ? "hover:bg-surface/40 rounded-lg px-1 -mx-1 py-0.5" : ""}`}
+              >
+                <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${e.event === "injection_scan" && e.data.injection_detected ? "bg-sev-serious" : e.event === "verifier" ? "bg-grounded" : "bg-beam"}`} />
+                <span className="min-w-0 flex-1">
+                  <span className="text-[10px] uppercase tracking-wider text-beam/80 block">{role}</span>
+                  <span className="text-mist">{stage}</span>
+                  {detail && <span className="font-mono text-[11px] text-muted"> — {detail}</span>}
+                </span>
+                {body && <span className="text-[10px] text-muted shrink-0">{isOpen ? "▾" : "▸"}</span>}
+              </button>
+              {isOpen && body && (
+                <pre className="ml-3.5 mt-1 text-[10px] text-muted whitespace-pre-wrap font-mono leading-relaxed border-l border-line pl-2">{body}</pre>
+              )}
             </li>
           );
         })}

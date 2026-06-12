@@ -14,10 +14,17 @@ export const TIER: Record<TriageTier, { label: string; cls: string }> = {
 };
 
 export const STAGES: Record<string, string> = {
-  intake: "De-identify & validate", retrieval: "Retrieve evidence (Foundry IQ)",
+  intake: "De-identify & validate", retrieval: "Retrieve evidence",
   injection_scan: "Screen retrieved text for injection", specialist: "Safety specialist",
   synthesis: "Synthesize brief", verifier: "Grounding gate & abstention",
   triage: "Triage & escalate", brief: "Decision brief ready",
+};
+
+/** Rubric-facing agent role labels (mirrors backend/reasoning_roles.py). */
+export const ROLE_LABEL: Record<string, string> = {
+  intake: "Gatekeeper", retrieval: "Researcher", injection_scan: "Prompt Shield",
+  specialist: "Safety Analyst", synthesis: "Draft Assembler", verifier: "Critic / Grounding Gate",
+  triage: "Escalation Officer",
 };
 
 const STATUS_CLS: Record<string, string> = {
