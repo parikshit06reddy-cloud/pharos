@@ -1,0 +1,9 @@
+# Live Foundry IQ / Azure path only. Not needed for the offline (default) provider.
+# Installed separately so the offline demo and CI stay dependency-light.
+#
+# The GA knowledge-base retrieve client lives in azure.search.documents.knowledgebases
+# (Azure AI Search REST 2026-04-01). For preview-only features (answer synthesis,
+# 2026-05-01-preview) install azure-search-documents with --pre.
+azure-identity>=1.16
+azure-search-documents>=11.7.0
+azure-ai-projects>=1.0.0

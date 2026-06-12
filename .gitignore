@@ -1,0 +1,38 @@
+# Secrets & PHI — never commit
+.env
+*.env
+audit_log.jsonl
+backend/governance/audit_log.jsonl
+
+# Local SQLite database (synthetic, regenerated/seeded on startup)
+data/pharos.db
+*.db
+
+# Eval scratch artifacts (network-dependent live probe)
+eval/.eval_audit.jsonl
+eval/.eval_live_audit.jsonl
+eval/scorecard_live.md
+
+# Stray compiled TS config output
+frontend/vite.config.js
+frontend/vite.config.d.ts
+frontend/*.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node / frontend
+node_modules/
+dist/
+frontend/node_modules/
+frontend/dist/
+
+# OS / editor
+.DS_Store
